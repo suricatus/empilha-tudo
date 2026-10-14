@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef2fa96c367d5854384c6cf8093c2f7c, type: 3}
+  m_Name: cliente
+  m_EditorClassIdentifier: Suricatus.FastDrive.Base::Suricatus.FastDrive.ClientBundle
+  clientId: suricatus
+  perfil: {fileID: 4900000, guid: 96d509ef26b36c740b6c7a336753e95f, type: 3}
+  tema: {fileID: 4900000, guid: f87fa47ae19edbe4a93020b87487371f, type: 3}
+  logoHorizontal: {fileID: 2800000, guid: ea1cda0d5616b5842b5943757f5d0c17, type: 3}
+  logoQuadrado: {fileID: 2800000, guid: 675ad38eafae05c4685ad5780a554105, type: 3}
+  logoFundoEscuro: {fileID: 0}
+  fundoVertical: {fileID: 2800000, guid: 1e1cfd576c223c241911a91edcbb8f35, type: 3}
+  fundoHorizontal: {fileID: 2800000, guid: d1a2a66e6a610b441b6c693267c3fb1a, type: 3}
+  arteAtracao: {fileID: 2800000, guid: 4c2e9cdbdb783ef4684a6e013cdc63e8, type: 3}
+  fonteTitulo: {fileID: 12800000, guid: 164f9746072d44e41bb880aca030f2fb, type: 3}
+  fonteTexto: {fileID: 0}
+  botaoPrincipal: {fileID: 2800000, guid: ea92d95f011d4cc4994bb7245a7110fc, type: 3}
+  botaoPrincipalPressionado: {fileID: 2800000, guid: 75588474088c10944837ec1298486c95, type: 3}
+  botaoSecundario: {fileID: 2800000, guid: 1e4a16031f73f8a43ad055957c25e135, type: 3}
+  botaoSecundarioPressionado: {fileID: 2800000, guid: 0c036eddf3cb1324a9c938e08f60ae52, type: 3}
+  botaoSair: {fileID: 2800000, guid: cd0dfa60eb1f59b4b94ce91a743d242e, type: 3}
+  cartao: {fileID: 0}
+  brindes: []
+  conteudo:
+  - {fileID: 4900000, guid: 498ca818ab94f6a469297d6e3e69c40d, type: 3}
+  sons: []
+  artesDoJogo:
+  - {fileID: 2800000, guid: e8ba4bc0bb78cf74f8ae616e86ec6944, type: 3}
+  - {fileID: 2800000, guid: 7c01565ef98c5ca46a3844044f6b2bc2, type: 3}
+  - {fileID: 2800000, guid: a0757af09d4eae2429ac3669c261482e, type: 3}
+  - {fileID: 2800000, guid: 178627039a2defb4ea9d649c1466dc95, type: 3}
+  - {fileID: 2800000, guid: 2a10bbf18e1c6144fa3a10e00bd1e678, type: 3}
+  - {fileID: 2800000, guid: 8152b61f626045440b224f6107171318, type: 3}
+  - {fileID: 2800000, guid: ac2f2b34728346e42b840da553d2618d, type: 3}
+  - {fileID: 2800000, guid: 3c008e5a80a352f40954d2f9bb1d8501, type: 3}
+  - {fileID: 2800000, guid: 8030b64174483824a98586511e4afaca, type: 3}
+  - {fileID: 2800000, guid: 0513a1eb121550b40a4e3ce6436ec017, type: 3}
+  - {fileID: 2800000, guid: 01553eeaea2a3784aaf61bc14e5f15cf, type: 3}

@@ -1,0 +1,119 @@
+/* Empilha Tudo: só o que é próprio do jogo. O resto do layout vem do FastDrive.uss.
+   Medidas em px na referência 1080 × 1920 (vertical) e 1920 × 1080 (horizontal). Cores vêm do tema, pelo código. */
+
+/* ---------- Área do jogo (quadrada) ---------- */
+.fd-card.et-arena { flex-grow: 1; padding: 20px; }
+.fd-landscape .fd-card.et-arena { padding: 16px; }
+/* Posição e tamanho das peças são em % deste campo, que é quadrado. */
+.et-field { flex-grow: 1; overflow: hidden; }
+/* Tudo o que a torre tem. Desce (translate) quando a torre cresce. */
+.et-world {
+    position: absolute; left: 0; top: 0; right: 0; bottom: 0;
+    transition-property: translate;
+    transition-duration: 0.35s;
+    transition-timing-function: ease-out-cubic;
+}
+
+/* Peças e efeitos, em camadas do tamanho do campo. */
+.et-layer { position: absolute; left: 0; top: 0; right: 0; bottom: 0; }
+
+.et-base { position: absolute; }
+
+/* A arte da peça estica só no meio; as pontas vêm do código (-unity-slice-*). */
+.et-block {
+    position: absolute;
+    transition-property: scale, opacity;
+    transition-duration: 0.25s, 0.3s;
+    transition-timing-function: ease-out-back, ease-out-cubic;
+}
+/* Peça sem arte: o corpo ocupa a parte de cima, como na arte (o resto seria a sombra). */
+.et-block__body { position: absolute; left: 0; right: 0; top: 0; height: 86%; }
+.et-block--pop { scale: 1.08 1.08; transition-duration: 0s, 0s; }
+.et-block--gone { opacity: 0; }
+/* A queda cabe nos 0,9 s que a Base espera antes do Resultado. */
+.et-block--falling {
+    transition-property: translate, rotate, opacity;
+    transition-duration: 0.7s, 0.7s, 0.7s;
+    transition-timing-function: ease-in-cubic, ease-in-cubic, ease-in-cubic;
+}
+
+/* A parte cortada, que cai girando. */
+.et-cut {
+    position: absolute;
+    overflow: hidden;
+    transition-property: translate, rotate, opacity;
+    transition-duration: 0.7s, 0.7s, 0.7s;
+    transition-timing-function: ease-in-cubic, ease-out-cubic, ease-in-cubic;
+}
+
+/* ---------- Encaixe perfeito ---------- */
+.et-sparkle {
+    position: absolute;
+    -unity-background-scale-mode: scale-to-fit;
+    scale: 0.4 0.4;
+    transition-property: scale, rotate, opacity;
+    transition-duration: 0.5s, 0.5s, 0.5s;
+    transition-timing-function: ease-out-cubic, ease-out-cubic, ease-in-cubic;
+}
+.et-sparkle--out { scale: 1.5 1.5; rotate: 90deg; opacity: 0; }
+
+.et-float {
+    position: absolute;
+    font-size: 64px;
+    margin: 0; padding: 0;
+    white-space: nowrap;
+    translate: -50% 0;
+    transition-property: translate, opacity;
+    transition-duration: 0.7s, 0.7s;
+    transition-timing-function: ease-out-cubic, ease-in-cubic;
+}
+.et-float--up { translate: -50% -110%; opacity: 0; }
+
+/* ---------- Mão de "toque aqui", até o primeiro toque ---------- */
+.et-hint {
+    position: absolute;
+    -unity-background-scale-mode: scale-to-fit;
+    transition-property: scale;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-in-out-sine;
+}
+.et-hint--pulse { scale: 0.82 0.82; }
+
+/* ---------- Área de apoio: próxima faixa, andares, perfeitos e legenda ---------- */
+.fd-card.et-panel { flex-grow: 1; padding: 32px 48px 32px 48px; justify-content: space-between; }
+.fd-landscape .fd-card.et-panel { padding: 56px 48px 56px 48px; justify-content: space-around; }
+
+.et-goal { flex-shrink: 0; align-items: center; }
+.et-panel .et-goal__caption { font-size: 36px; }
+.et-panel .et-goal__name {
+    font-size: 64px;
+    transition-property: scale;
+    transition-duration: 0.22s;
+    transition-timing-function: ease-out-back;
+}
+.et-panel .et-goal__name--pop { scale: 1.2 1.2; transition-duration: 0s; }
+.et-bar {
+    width: 100%; height: 28px; margin-top: 12px;
+    overflow: hidden;
+    border-top-left-radius: 14px; border-top-right-radius: 14px;
+    border-bottom-left-radius: 14px; border-bottom-right-radius: 14px;
+}
+.et-bar__fill {
+    height: 100%;
+    border-top-left-radius: 14px; border-top-right-radius: 14px;
+    border-bottom-left-radius: 14px; border-bottom-right-radius: 14px;
+    transition-property: width;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out-cubic;
+}
+
+.et-stats { flex-direction: row; justify-content: space-around; flex-shrink: 0; }
+.et-stat { align-items: center; width: 50%; }
+.et-panel .et-stat__value { font-size: 104px; }
+.fd-landscape .et-panel .et-stat__value { font-size: 128px; }
+.et-panel .et-stat__label { font-size: 40px; }
+
+.et-legend { flex-direction: row; justify-content: center; align-items: center; flex-shrink: 0; }
+.et-legend__icon { width: 96px; height: 96px; margin-right: 16px; flex-shrink: 0; -unity-background-scale-mode: scale-to-fit; }
+.fd-landscape .et-legend__icon { width: 112px; height: 112px; }
+.et-panel .et-legend__label { font-size: 44px; -unity-text-align: middle-left; }

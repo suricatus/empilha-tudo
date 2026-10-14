@@ -1,0 +1,18 @@
+{
+  "larguraInicial": 0.65,
+  "velocidade": { "inicial": 0.4, "porAndar": 0.015, "maxima": 1.0 },
+  "encaixePerfeito": 0.02,
+  "apoioMinimo": 0.2,
+  "pontosPorAndar": 100,
+  "bonusPerfeito": 50,
+  "faixas": [
+    { "nome": "Medalha de Bronze", "pontos": 0 },
+    { "nome": "Medalha de Prata", "pontos": 2000, "vitoria": true },
+    { "nome": "Medalha de Ouro", "pontos": 4000, "vitoria": true }
+  ],
+  "comoJogar": [
+    "Toque na tela para soltar a peça",
+    "O que ficar para fora cai",
+    "Encaixe perfeito vale pontos extras"
+  ]
+}
