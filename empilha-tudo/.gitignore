@@ -81,6 +81,11 @@ mono_crash.*
 # Builds
 *.apk
 *.aab
+*.keystore
+*.jks
+
+# Chave de envio da Play Store e as senhas da build (guarde uma cópia fora do repositório)
+/Chaves/
 *.unitypackage
 *.unitypackage.meta
 *.app

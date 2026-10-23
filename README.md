@@ -9,7 +9,7 @@ O cliente padrão é a própria Suricatus: é a versão de demonstração para o
 1. Clone este repositório e o Tools lado a lado, mantendo as pastas `GitHub/Suricatus/Jogos - Prateleira/` e `GitHub/Suricatus/Ferramentas/Tools/`: o jogo encontra os pacotes por caminho relativo.
 2. Abra `empilha-tudo` na Unity 6000.3.5f2.
 3. Abra `Assets/Scenes/EmpilhaTudo.unity` e aperte Play.
-4. No Game view, use 1080 × 1920 para o totem e o celular, ou 1920 × 1080 para o tablet, o computador e o site. O layout troca sozinho com a proporção.
+4. No Game view, use 1080 × 1920 para o totem, 1080 × 2400 para o celular de hoje, ou 1920 × 1080 (ou 1920 × 1200) deitado para o tablet, o computador e o site. O layout troca sozinho com a proporção: sobrando altura as caixas esticam, sobrando largura a tela fica no meio.
 
 Para recriar a cena do zero: **Fast-Drive > Montar cena do jogo**.
 
@@ -143,6 +143,37 @@ Trocáveis em `textos` no `perfil.json`:
 | `empilha.toque` | Toque na tela para soltar a peça |
 | `empilha.resultado` | Altura: {andares} · Perfeitos: {perfeitos} |
 
+## Publicar na Play Store (teste interno)
+
+O app da Play Store é o cliente `suricatus`, o mesmo da demonstração. Nele o Modo quiosque fica sem `bloquearSaida` e sem `fixarApp`: quem baixa pelo convite precisa poder sair do jogo. Em totem e tablet de evento, o cliente do evento liga os dois no `perfil.json`.
+
+### Uma vez só
+
+1. **Crie a chave de envio**: `./ferramentas/criar-chave-android.ps1` na pasta do repositório. Ele pede uma senha e deixa a chave e o `android.json` em `empilha-tudo/Chaves`, que não vai para o Git. **Guarde uma cópia da pasta fora do computador**: sem essa chave a Play Store não aceita atualização do app.
+2. **Crie o app no Play Console** com o identificador `com.suricatusgames.empilhatudo` e abra a faixa **Teste interno**, com a lista de e-mails de quem vai receber o convite (até 100 pessoas).
+3. **Preencha o conteúdo do app**: o jogo pede nome, e-mail e telefone no Cadastro, então a Play Store exige **política de privacidade** (link público) e o formulário de **segurança dos dados** declarando esses três campos e o envio para o servidor. Responda também a classificação indicativa e o público-alvo.
+4. **Arte da loja**: ícone de 512 × 512 (recorte de `Branding/empilha-tudo-icone.png`), imagem de destaque 1024 × 500 e pelo menos 2 capturas de tela do celular. Essas artes ficam no Play Console, não no projeto.
+
+### A cada envio
+
+1. Com a cena no cliente `suricatus`, abra **Fast-Drive > Android > Conferir a configuração**. O Console diz se falta algo.
+2. **Fast-Drive > Android > Gerar .aab para a Play Store**. O arquivo sai em `empilha-tudo/Builds/Android` com o nome `Empilha Tudo <versão> (<código>).aab`; o código da versão sobe sozinho a cada build, que é o que a Play Store exige.
+3. Suba o `.aab` na faixa de teste interno. Para mudar o nome da versão que aparece na loja (1.0, 1.1…), troque **Player Settings > Version**.
+
+Para instalar direto no aparelho por cabo, sem passar pela loja, use **Gerar .apk para testar no aparelho**.
+
+### O que já está configurado
+
+| Item | Como está |
+|---|---|
+| Identificador | `com.suricatusgames.empilhatudo` |
+| Compilação | IL2CPP, ARM64 + ARMv7, formato App Bundle |
+| Android mínimo / alvo | API 25 (7.1) / API 36, como a Play Store pede |
+| Orientação | Vertical e horizontal, o layout troca sozinho |
+| Ícone | Adaptativo (fundo + frente) e redondo, de `Assets/Sprites/empilha-tudo-icone*.png` |
+| Símbolos de depuração | Gerados num `.zip` ao lado do `.aab`, para subir junto e ler os relatórios de falha |
+| Permissões | Só internet (Supabase) |
+
 ## Testes
 
 Window > General > Test Runner > EditMode: 22 testes do Empilha Tudo (conteúdo e limites, faixas, partida: base, movimento e rebote, encaixe perfeito, corte dos dois lados, desabamento por pouco apoio e por largura mínima, toque entre peças, fim do tempo, velocidade e variações das peças), mais os testes dos pacotes instalados (235 no total).
@@ -160,5 +191,9 @@ empilha-tudo/
   Assets/Clientes/<cliente>/               uma pasta por cliente, nomes fixos do guia visual
   Assets/FastDrive/                        PanelSettings, tema da interface e configuração do Servidor
   Assets/Scenes/EmpilhaTudo.unity
+  Builds/Android/                          onde sai o .aab e o .apk
+  Chaves/                                  chave de envio da Play Store (fora do Git)
+  Branding/criar-icone.ps1                 gera o ícone do app (quadrado, camadas do Android e .ico)
 ferramentas/artes_cliente_suricatus.py     gera as artes do cliente Suricatus
+ferramentas/criar-chave-android.ps1        cria a chave de envio da Play Store
 ```

@@ -14,8 +14,8 @@
   "quiosque": {
     "telaCheia": true,
     "esconderCursor": true,
-    "bloquearSaida": true,
-    "fixarApp": true,
+    "bloquearSaida": false,
+    "fixarApp": false,
     "orientacao": "automatica"
   },
   "cadastro": {

@@ -89,7 +89,7 @@
       "depth": 0,
       "source": "local",
       "dependencies": {
-        "com.suricatusgames.fastdrive.base": "0.7.0"
+        "com.suricatusgames.fastdrive.base": "0.10.0"
       }
     },
     "com.suricatusgames.fastdrive.teclado": {

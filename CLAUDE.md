@@ -12,7 +12,7 @@ Terceiro jogo do Fast-Drive Game, a arquitetura da Suricatus para fazer vários 
 - O layout (posição e tamanho) fica em USS com as medidas do guia visual, em px na referência 1080 × 1920 (vertical) ou 1920 × 1080 (horizontal). Cor, fonte, cantos e texturas vêm do tema, aplicados pelo `UiFactory`. Dentro da área do jogo, a torre usa frações do lado da área (que é quadrada), em `TowerView`.
 - A sequência é fixa: Atração, Como jogar, Contagem, Gameplay, Resultado, Cadastro\*, Final\*. Não existe "Jogar de novo" (o documento de game design pede, mas a regra do Fast-Drive vale): o Final volta para a Atração.
 - Pontuação em pontos, como nos outros jogos: Prêmios e Ranking decidem pela pontuação. A altura aparece no Resultado. A "altura para ganhar prêmio" do documento vira pontos (ver a conta no README).
-- Plataformas: totem Windows, totem ou tablet Android, navegador (WebGL, site da Suricatus). Um aparelho por evento.
+- Plataformas: totem Windows, totem ou tablet Android, navegador (WebGL, site da Suricatus). Um aparelho por evento. O cliente `suricatus` também é o app da Play Store (teste interno): nele o quiosque não bloqueia a saída nem fixa o app, e o `.aab` sai pelo menu **Fast-Drive > Android** (ver "Publicar na Play Store" no README).
 
 ## Convenções
 
